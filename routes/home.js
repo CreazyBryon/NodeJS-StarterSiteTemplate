@@ -1,4 +1,5 @@
 
+var fs = require("fs")
 
 module.exports = function (app) {
 
@@ -23,8 +24,9 @@ module.exports = function (app) {
 
     app.post('/uploadpic', function (req, res) {
 
-        //fs.renameSync(files.upload.path, "upload\\test.png");
+        fs.renameSync(req.files.uploadfile.path, "pics\\test.png");
 
+		res.json({msg:"succed"});
 
     });
 
@@ -35,7 +37,7 @@ module.exports = function (app) {
     app.get('/getpic', function (req, res) {
 
         
-		res.sendfile('uploaded/d76ea80c22c900e0df9170ac3bd59298.png');
+		res.sendfile('pics/test.png');
 
     });
 
