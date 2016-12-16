@@ -184,7 +184,7 @@ app.configure(function () {
     app.set('view engine', 'jade');
     app.use(express.favicon());
     app.use(express.logger('dev'));
-    app.use(express.bodyParser());
+    app.use(express.bodyParser({ keepExtensions: true, uploadDir: 'uploaded/' }));
     app.use(express.methodOverride());
     app.use(express.cookieParser('azure zomg'));
     app.use(express.session());
